@@ -43,16 +43,18 @@ export default function Home() {
       <section className="border-b border-gray-200 bg-white">
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 text-center sm:grid-cols-3">
           <div>
-            <p className="text-sm font-bold text-black">Registered by</p>
-            <p className="font-semibold">{institute.registeredBy}</p>
-          </div>
-          <div>
             <p className="text-sm font-bold text-black">Certified by</p>
             <p className="font-semibold">{institute.certification}</p>
           </div>
+
           <div>
             <p className="text-sm font-bold text-black">Admission</p>
             <p className="font-semibold">Open throughout the year</p>
+          </div>
+
+          <div>
+            <p className="text-sm font-bold text-black">Registered by</p>
+            <p className="font-semibold">{institute.registeredBy}</p>
           </div>
         </div>
       </section>
