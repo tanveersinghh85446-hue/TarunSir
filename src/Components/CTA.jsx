@@ -13,10 +13,13 @@ export default function CTA({
         <p className="mx-auto mt-3 max-w-xl text-white/80">{text}</p>
         <Link
           to={to}
-          className="mt-6 inline-block rounded bg-gold px-8 py-3 font-semibold text-navy hover:bg-gold-light"
+          className="mt-6 inline-block rounded bg-yellow-300 px-8 py-3 font-semibold text-black"
         >
           {buttonText}
         </Link>
+      </div>
+      <div className="w-full text-white">
+        <hr />
       </div>
     </section>
   );

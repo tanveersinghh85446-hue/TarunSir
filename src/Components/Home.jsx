@@ -43,15 +43,15 @@ export default function Home() {
       <section className="border-b border-gray-200 bg-white">
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 text-center sm:grid-cols-3">
           <div>
-            <p className="text-sm text-gray-500">Registered by</p>
+            <p className="text-sm font-bold text-black">Registered by</p>
             <p className="font-semibold">{institute.registeredBy}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500">Certified by</p>
+            <p className="text-sm font-bold text-black">Certified by</p>
             <p className="font-semibold">{institute.certification}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500">Admission</p>
+            <p className="text-sm font-bold text-black">Admission</p>
             <p className="font-semibold">Open throughout the year</p>
           </div>
         </div>
@@ -59,13 +59,13 @@ export default function Home() {
 
       {/* About */}
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="text-2xl font-bold sm:text-3xl">
-          About <span className="text-gold">{institute.name}</span>
+        <h2 className="text-2xl font-bold sm:text-3xl text-black">
+          About <span className="text-yellow-300">{institute.name}</span>
         </h2>
         <p className="mt-4 max-w-3xl text-gray-700">{aboutText[3]}</p>
         <Link
           to="/about"
-          className="mt-4 inline-block font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4"
+          className="mt-4 inline-block font-semibold text-black underline decoration-yellow-300   decoration-2 underline-offset-6"
         >
           Read more about us
         </Link>
@@ -74,10 +74,10 @@ export default function Home() {
       {/* Courses */}
       <section className="bg-navy/5">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 className="text-2xl font-bold sm:text-3xl">
-            Our <span className="text-gold">Courses</span>
+          <h2 className="text-2xl font-bold sm:text-3xl text-black">
+            Our <span className="text-yellow-300">Courses</span>
           </h2>
-          <p className="mt-2 text-gray-700">
+          <p className="mt-2 text-black">
             Short term and long term courses, according to your needs and aims.
           </p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -86,8 +86,8 @@ export default function Home() {
                 key={group.title}
                 className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-5"
               >
-                <h3 className="text-lg font-semibold">{group.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <h3 className="text-lg  text-black font-bold">{group.title}</h3>
+                <p className="mt-2 text-sm text-black font-semibold">
                   {group.courses.join(", ")}
                 </p>
               </div>
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
           <Link
             to="/course"
-            className="mt-8 inline-block rounded bg-navy px-6 py-3 font-semibold text-white hover:text-gold"
+            className="mt-8 inline-block rounded bg-navy px-6 py-3 font-semibold text-white hover:text-yellow-300"
           >
             See all courses
           </Link>
@@ -104,8 +104,8 @@ export default function Home() {
 
       {/* Why us */}
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="text-2xl font-bold sm:text-3xl">
-          Why <span className="text-gold">{institute.name}</span>
+        <h2 className="text-2xl font-bold sm:text-3xl text-black">
+          Why <span className="text-yellow-300">{institute.name}</span>
         </h2>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {features.slice(0, 8).map((item) => (
@@ -117,7 +117,7 @@ export default function Home() {
         </ul>
         <Link
           to="/about"
-          className="mt-6 inline-block font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4"
+          className="mt-6 inline-block font-semibold text-navy underline decoration-yellow-300 decoration-2 underline-offset-6"
         >
           See all features
         </Link>
