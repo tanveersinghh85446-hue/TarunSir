@@ -10,6 +10,15 @@ import Course from "./Pages/Course";
 import Blog from "./Pages/Blog";
 import Contact from "./Pages/Contact";
 import Apply from "./Pages/Apply";
+import Mode from "./Pages/Mode";
+import Online from "./Pages/Online";
+import Offline from "./Pages/Offline";
+import Hybrid from "./Pages/Hybrid";
+import EnrollNow from "./Pages/EnrollNow";
+import OnlineExam from "./Pages/OnlineExam";
+import PayFee from "./Pages/PayFee";
+import Result from "./Pages/Result";
+import Franchise from "./Pages/Franchise";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +50,15 @@ export default function App() {
               </section>
             }
           />
+          <Route path="/mode" element={<Mode />} />
+          <Route path="/online" element={<Online />} />
+          <Route path="/offline" element={<Offline />} />
+          <Route path="/hybrid" element={<Hybrid />} />
+          <Route path="/enroll-now" element={<EnrollNow />} />
+          <Route path="/online-exam" element={<OnlineExam />} />
+          <Route path="/pay-fee" element={<PayFee />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/franchise" element={<Franchise />} />
         </Routes>
       </main>
       <Footer />

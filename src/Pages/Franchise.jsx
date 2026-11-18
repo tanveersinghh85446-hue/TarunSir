@@ -1,0 +1,92 @@
+import { useState } from "react";
+import { FiCheckCircle } from "react-icons/fi";
+import PageHeader from "../Components/PageHeader";
+import FormField from "../Components/FormField";
+import { institute } from "../data/siteData";
+
+const benefits = [
+  `Registered by ${institute.registeredBy}`,
+  `${institute.certification} certified institute`,
+  "Wide range of career oriented courses",
+  "Nominal and affordable fee for students",
+  "Admission conducted throughout the year",
+];
+
+export default function Franchise() {
+  const [sent, setSent] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // TODO: send the form data to your backend or email service here
+    setSent(true);
+  }
+
+  return (
+    <>
+      <PageHeader
+        title="Franchise"
+        subtitle={`Become a part of the ${institute.name} family.`}
+      />
+
+      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-bold">
+            Why partner with <span className="text-gold">{institute.name}</span>
+          </h2>
+          <p className="mt-3 text-gray-700">
+            We want to bring quality skill training to more students. If you are
+            interested in starting a centre with us, send us your details.
+          </p>
+          <ul className="mt-6 space-y-3">
+            {benefits.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <FiCheckCircle className="mt-1 shrink-0 text-gold" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6">
+          <h2 className="text-xl font-semibold">Franchise enquiry</h2>
+
+          {sent ? (
+            <div className="mt-4 text-center">
+              <p className="text-lg font-semibold">Thank you!</p>
+              <p className="mt-2 text-gray-700">
+                We have received your enquiry and will get in touch with you
+                soon.
+              </p>
+              <button
+                type="button"
+                onClick={() => setSent(false)}
+                className="mt-4 rounded bg-navy px-5 py-2 text-sm font-semibold text-white hover:text-gold"
+              >
+                Send another enquiry
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+              <FormField label="Full Name" name="name" required />
+              <FormField
+                label="Phone Number"
+                name="phone"
+                type="tel"
+                required
+              />
+              <FormField label="Email" name="email" type="email" />
+              <FormField label="City" name="city" required />
+              <FormField label="Message" name="message" rows={4} />
+              <button
+                type="submit"
+                className="w-full rounded bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
+              >
+                Submit Enquiry
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+    </>
+  );
+}

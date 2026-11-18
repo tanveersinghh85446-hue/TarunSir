@@ -21,7 +21,10 @@ export default function Course() {
               <h2 className="text-xl font-semibold">{group.title}</h2>
               <ul className="mt-4 space-y-2">
                 {group.courses.map((course) => (
-                  <li key={course} className="flex items-start gap-2 text-gray-700">
+                  <li
+                    key={course}
+                    className="flex items-start gap-2 text-gray-700"
+                  >
                     <FiBookOpen className="mt-1 shrink-0 text-gold" />
                     <span>{course}</span>
                   </li>
