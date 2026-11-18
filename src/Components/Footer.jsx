@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
+const logo = "AnitioLogo.png"
+
 const quickLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
@@ -10,17 +12,27 @@ const quickLinks = [
   { to: "/apply", label: "Apply" },
 ];
 
+const year = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-3">
         {/* Brand */}
         <div>
-          <h3 className="text-xl font-bold">
-            Tarun <span className="text-gold">Sir</span>
-          </h3>
+          {logo ? (
+            <div className="inline-block rounded bg-white p-2">
+              <img
+                src={logo}
+                alt="ANITIO - Information Technology & Skill Development Institute"
+                className="h-14 w-auto sm:h-16"
+              />
+            </div>
+          ) : (
+            <h3 className="text-xl font-bold text-gold">ANITIO</h3>
+          )}
           <p className="mt-3 text-sm text-white/80">
-            Quality guidance and learning to help you reach your goals.
+            Information Technology & Skill Development Institute. Registered by Ministry of Corporate Affairs & MSME. ISO 9001:2015 certified.
           </p>
         </div>
 
@@ -60,7 +72,7 @@ export default function Footer() {
 
       <div className="border-t border-gold/30">
         <p className="mx-auto max-w-6xl px-4 py-4 text-center text-xs text-white/70">
-          © {new Date().getFullYear()} Tarun Sir. All rights reserved.
+          © {year} ANITIO. All rights reserved.
         </p>
       </div>
     </footer>
