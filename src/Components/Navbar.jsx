@@ -174,7 +174,7 @@ export default function Navbar() {
                             to={child.to}
                             onClick={() => setDropdown(null)}
                             className={({ isActive }) =>
-                              `block px-4 py-2 text-sm text-black hover:bg-yellow-300/30 ${
+                              `block px-4 py-2 text-sm font-semibold text-black hover:text-white hover:bg-yellow-300 ${
                                 isActive ? "font-semibold" : ""
                               }`
                             }

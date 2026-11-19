@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
-const logo = "AnitioLogo.png"; // public/logo.png. Khali ("") rakhega toh text dikhega
+const logo = "AnitioLogo.png";
 
 const quickLinks = [
   { to: "/", label: "Home" },
@@ -40,7 +40,7 @@ export default function Footer() {
           ) : (
             <h3 className="text-xl font-bold text-gold">ANITIO</h3>
           )}
-          <p className="mt-3 text-sm text-white font-semibold">
+          <p className="mt-3 text-sm text-black font-semibold">
             Information Technology & Skill Development Institute. Registered by
             Ministry of Corporate Affairs & MSME. ISO 9001:2015 certified.
           </p>
@@ -102,10 +102,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gold/30">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-center text-xs text-white/70">
-          © {year} ANITIO. All rights reserved.
-        </p>
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-xs text-white/70 sm:flex-row">
+        <p>© {year} ANITIO. All rights reserved.</p>
+        <div className="flex gap-4">
+          <Link to="/terms" className="hover:text-gold-light">
+            Terms & Conditions
+          </Link>
+          <Link to="/privacy" className="hover:text-gold-light">
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );

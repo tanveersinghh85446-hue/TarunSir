@@ -3,7 +3,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-
+import AnnouncementBar from "./Components/AnnouncementBar";
+import FloatingButtons from "./Components/FloatingButtons";
+import NotFound from "./Pages/NotFound";
 import Home from "./Components/Home";
 import About from "./Pages/About";
 import Course from "./Pages/Course";
@@ -19,7 +21,9 @@ import OnlineExam from "./Pages/OnlineExam";
 import PayFee from "./Pages/PayFee";
 import Result from "./Pages/Result";
 import Franchise from "./Pages/Franchise";
-
+import Terms from "./Pages/Terms";
+import Privacy from "./Pages/Privacy";
+import PageMeta from "./Components/PageMeta";
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -32,6 +36,8 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-navy">
       <ScrollToTop />
+      <PageMeta />
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-1">
         <Routes>
@@ -41,15 +47,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/apply" element={<Apply />} />
-          <Route
-            path="*"
-            element={
-              <section className="mx-auto max-w-6xl px-4 py-20 text-center">
-                <h1 className="text-4xl font-bold">404</h1>
-                <p className="mt-2">Page not found.</p>
-              </section>
-            }
-          />
+          <Route path="*" element={<NotFound />} />
           <Route path="/mode" element={<Mode />} />
           <Route path="/online" element={<Online />} />
           <Route path="/offline" element={<Offline />} />
@@ -59,9 +57,12 @@ export default function App() {
           <Route path="/pay-fee" element={<PayFee />} />
           <Route path="/result" element={<Result />} />
           <Route path="/franchise" element={<Franchise />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />
+      <FloatingButtons />
     </div>
   );
 }

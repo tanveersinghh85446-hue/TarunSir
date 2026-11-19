@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import { FiCheckCircle } from "react-icons/fi";
 import CTA from "./CTA";
 import { institute, courseGroups, features, aboutText } from "../data/siteData";
+import { RiCertificate2Line } from "react-icons/ri";
+import { FaRegEdit } from "react-icons/fa";
+import { FaRegAddressBook } from "react-icons/fa";
+import { PiTrademarkRegistered } from "react-icons/pi";
 
 export default function Home() {
   return (
@@ -43,16 +47,25 @@ export default function Home() {
       <section className="border-b border-gray-200 bg-white">
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 text-center sm:grid-cols-3">
           <div>
+            <div className="flex justify-center items-center gap-3">
+              <RiCertificate2Line className="text-black text-xl" />
+            </div>
             <p className="text-sm font-bold text-black">Certified by</p>
-            <p className="font-semibold">{institute.certification}</p>
+            <p className="font-semibold mt-1">{institute.certification}</p>
           </div>
 
           <div>
+            <div className="flex justify-center items-center gap-3">
+              <FaRegAddressBook className="text-black text-xl" />
+            </div>
             <p className="text-sm font-bold text-black">Admission</p>
             <p className="font-semibold">Open throughout the year</p>
           </div>
 
           <div>
+            <div className="flex justify-center items-center gap-3">
+              <PiTrademarkRegistered className="text-black text-xl" />
+            </div>
             <p className="text-sm font-bold text-black">Registered by</p>
             <p className="font-semibold">{institute.registeredBy}</p>
           </div>

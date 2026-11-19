@@ -17,7 +17,7 @@ export default function About() {
       />
 
       {/* About */}
-      <section className="mx-auto max-w-4xl space-y-4 px-4 py-14 text-gray-700">
+      <section className="mx-auto max-w-4xl space-y-4 px-4 py-14 font-semibold text-black">
         {aboutText.map((para) => (
           <p key={para}>{para}</p>
         ))}
@@ -66,8 +66,11 @@ export default function About() {
           </h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {features.map((item) => (
-              <li key={item} className="flex font-semibold text-black items-start gap-2">
-                <FiCheckCircle className="mt-1 shrink-0 text-yellow-300" />
+              <li
+                key={item}
+                className="flex font-semibold text-black items-start gap-2"
+              >
+                <FiCheckCircle className="mt-1 shrink-0 text-green-500" />
                 <span>{item}</span>
               </li>
             ))}

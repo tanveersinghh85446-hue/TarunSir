@@ -26,12 +26,12 @@ export default function Result() {
       <section className="mx-auto max-w-xl px-4 py-14">
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6"
+          className="space-y-4 rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6"
         >
           <FormField label="Roll Number" name="rollNo" required />
           <button
             type="submit"
-            className="w-full rounded bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
+            className="w-full rounded bg-yellow-300  px-6 py-3 font-semibold text-black"
           >
             Check Result
           </button>

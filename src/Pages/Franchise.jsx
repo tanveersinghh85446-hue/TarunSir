@@ -31,7 +31,8 @@ export default function Franchise() {
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-2">
         <div>
           <h2 className="text-2xl font-bold text-black">
-            Why partner with <span className="text-black">{institute.name}</span>
+            Why partner with{" "}
+            <span className="text-black">{institute.name}</span>
           </h2>
           <p className="mt-3 text-gray-700">
             We want to bring quality skill training to more students. If you are
@@ -48,19 +49,21 @@ export default function Franchise() {
         </div>
 
         <div className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6">
-          <h2 className="text-xl font-semibold">Franchise enquiry</h2>
+          <h2 className="text-xl text-black font-bold">Franchise enquiry</h2>
 
           {sent ? (
             <div className="mt-4 text-center">
-              <p className="text-lg font-semibold">Thank you!</p>
-              <p className="mt-2 text-gray-700">
+              <p className="text-lg font-semibold text-green-500">
+                Thank you !
+              </p>
+              <p className="mt-2 text-black font-semibold">
                 We have received your enquiry and will get in touch with you
                 soon.
               </p>
               <button
                 type="button"
                 onClick={() => setSent(false)}
-                className="mt-4 rounded bg-navy px-5 py-2 text-sm font-semibold text-white hover:text-gold"
+                className="mt-4 rounded bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:text-black"
               >
                 Send another enquiry
               </button>

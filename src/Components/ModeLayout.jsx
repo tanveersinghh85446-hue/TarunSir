@@ -19,16 +19,16 @@ export default function ModeLayout({
       <PageHeader title={title} subtitle={subtitle} />
 
       <section className="mx-auto max-w-4xl px-4 py-14">
-        <p className="text-gray-700">{intro}</p>
+        <p className="text-black font-semibold">{intro}</p>
 
-        <h2 className="mt-8 text-2xl font-bold">
-          What you <span className="text-gold">get</span>
+        <h2 className="mt-8 text-2xl font-bold text-black">
+          What you <span className="text-yellow-300">Get !</span>
         </h2>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {points.map((point) => (
             <li key={point} className="flex items-start gap-2">
-              <FiCheckCircle className="mt-1 shrink-0 text-gold" />
-              <span>{point}</span>
+              <FiCheckCircle className="mt-1 shrink-0 text-green-500" />
+              <span className="font-semibold">{point}</span>
             </li>
           ))}
         </ul>
@@ -42,10 +42,10 @@ export default function ModeLayout({
               <Link
                 key={mode.to}
                 to={mode.to}
-                className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-5 hover:border-t-navy"
+                className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-5 hover:border-t-black"
               >
-                <h3 className="font-semibold">{mode.title}</h3>
-                <p className="mt-1 text-sm text-gray-600">{mode.text}</p>
+                <h3 className=" text-black font-bold">{mode.title}</h3>
+                <p className="mt-1 text-sm text-black">{mode.text}</p>
               </Link>
             ))}
           </div>

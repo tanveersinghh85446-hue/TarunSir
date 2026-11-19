@@ -6,9 +6,10 @@ import FAQ from "../Components/FAQ";
 
 // Replace these placeholders with the real details.
 const contact = {
-  address: "Your address here",
-  phone: "+91 00000 00000",
-  email: "email@example.com",
+  address:
+    "H-20, Sewak Park, Dwarka Mor Metro Station, Pillar No. 772, Uttam Nagar, New Delhi – 110059",
+  phone: "+91 92894 38428",
+  email: "anitioinstitute@gmail.com",
 };
 
 export default function Contact() {
@@ -31,14 +32,6 @@ export default function Contact() {
         {/* Contact info */}
         <div className="space-y-4">
           <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
-            <FiMapPin className="mt-4 shrink-0 text-red-600" size={20} />
-            <div>
-              <h3 className="font-semibold">Address</h3>
-              <p className="text-gray-700">{contact.address}</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
             <FiPhone className="mt-4 shrink-0 text-black" size={20} />
             <div>
               <h3 className="font-semibold">Phone</h3>
@@ -54,38 +47,50 @@ export default function Contact() {
           <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
             <FiMail className="mt-4 shrink-0 text-green-500" size={20} />
             <div>
-              <h3 className="font-semibold">Email</h3>
+              <h3 className="font-semibold text-black">Email</h3>
               <a
                 href={`mailto:${contact.email}`}
-                className="break-all text-gray-700 hover:text-green-400"
+                className="break-all text-black hover:text-green-400"
               >
                 {contact.email}
               </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
+            <FiMapPin className="mt-4 shrink-0 text-red-600" size={20} />
+            <div>
+              <h3 className="font-semibold">Address</h3>
+              <p className="text-black">{contact.address}</p>
             </div>
           </div>
         </div>
 
         {/* Message form */}
         <div className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6 lg:col-span-2">
-          <h2 className="text-xl font-semibold">Send us a message</h2>
+          <h2 className="text-xl font-semibold text-black">
+            Send us a message
+          </h2>
 
           {sent ? (
             <div className="mt-4 text-center">
-              <p className="text-lg font-semibold">Thank you!</p>
-              <p className="mt-2 text-gray-700">
+              <p className="text-lg font-semibold text-green-500">
+                Thank you !
+              </p>
+              <p className="mt-2 text-black font-bold">
                 We have received your message and will reply soon.
               </p>
               <button
                 type="button"
                 onClick={() => setSent(false)}
-                className="mt-4 rounded bg-navy px-5 py-2 text-sm font-semibold text-white hover:text-gold"
+                className="mt-4 rounded bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:text-black"
               >
                 Send another message
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-2 text-black">
                 <FormField label="Full Name" name="name" required />
                 <FormField
                   label="Phone Number"
@@ -95,7 +100,13 @@ export default function Contact() {
                 />
               </div>
               <FormField label="Email" name="email" type="email" />
-              <FormField label="Message" name="message" rows={5} required />
+              <FormField
+                className="text-black"
+                label="Message"
+                name="message"
+                rows={5}
+                required
+              />
               <button
                 type="submit"
                 className="rounded bg-yellow-300 px-8 py-3 font-semibold text-black hover:bg-yellow-400"
