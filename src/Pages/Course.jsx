@@ -16,16 +16,18 @@ export default function Course() {
           {courseGroups.map((group) => (
             <div
               key={group.title}
-              className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6"
+              className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6"
             >
-              <h2 className="text-xl font-semibold">{group.title}</h2>
+              <h2 className="text-xl text-black font-semibold">
+                {group.title}
+              </h2>
               <ul className="mt-4 space-y-2">
                 {group.courses.map((course) => (
                   <li
                     key={course}
-                    className="flex items-start gap-2 text-gray-700"
+                    className="flex items-start font-semibold gap-2 text-black"
                   >
-                    <FiBookOpen className="mt-1 shrink-0 text-gold" />
+                    <FiBookOpen className="mt-1 shrink-0 text-yellow-300" />
                     <span>{course}</span>
                   </li>
                 ))}

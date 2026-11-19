@@ -48,16 +48,16 @@ export default function EnrollNow() {
               key={step.title}
               className="flex gap-4 rounded-lg border border-gray-200 bg-white p-5"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy font-bold text-gold">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/90 font-bold text-white">
                 {index + 1}
               </span>
               <div>
-                <h2 className="text-lg font-semibold">{step.title}</h2>
-                <p className="mt-1 text-gray-700">{step.text}</p>
+                <h2 className="text-lg text-black font-semibold">{step.title}</h2>
+                <p className="mt-1 text-black">{step.text}</p>
                 {step.to && (
                   <Link
                     to={step.to}
-                    className="mt-2 inline-block text-sm font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4"
+                    className="mt-2 inline-block text-sm font-semibold text-navy underline decoration-yellow-300 decoration-2 underline-offset-6"
                   >
                     {step.linkText}
                   </Link>

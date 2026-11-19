@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero */}
       <section className="bg-navy text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold">
+          <p className="text-sm font-semibold uppercase tracking-widest text-yellow-300">
             Welcome to
           </p>
           <h1 className="mt-2 text-4xl font-bold sm:text-6xl">
@@ -25,13 +25,13 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/apply"
-              className="rounded bg-gold px-7 py-3 font-semibold text-navy hover:bg-gold-light"
+              className="rounded bg-yellow-300 px-7 py-3 font-semibold text-black hover:bg-yellow-400"
             >
               Apply Now
             </Link>
             <Link
               to="/course"
-              className="rounded border border-white px-7 py-3 font-semibold text-white hover:border-gold hover:text-gold"
+              className="rounded border border-white px-7 py-3 font-semibold text-white hover:border-yellow-300 hover:text-yellow-300"
             >
               View Courses
             </Link>
@@ -69,7 +69,7 @@ export default function Home() {
           to="/about"
           className="mt-4 inline-block font-semibold text-black underline decoration-yellow-300   decoration-2 underline-offset-6"
         >
-          Read more about us
+          Read more about Us !
         </Link>
       </section>
 
@@ -86,7 +86,7 @@ export default function Home() {
             {courseGroups.map((group) => (
               <div
                 key={group.title}
-                className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-5"
+                className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-5"
               >
                 <h3 className="text-lg  text-black font-bold">{group.title}</h3>
                 <p className="mt-2 text-sm text-black font-semibold">
@@ -112,7 +112,7 @@ export default function Home() {
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {features.slice(0, 8).map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <FiCheckCircle className="mt-1 shrink-0 text-gold" />
+              <FiCheckCircle className="mt-1 shrink-0 text-black" />
               <span>{item}</span>
             </li>
           ))}

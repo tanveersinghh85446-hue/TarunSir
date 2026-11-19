@@ -25,7 +25,7 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-gray-600 text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
@@ -40,7 +40,7 @@ export default function Footer() {
           ) : (
             <h3 className="text-xl font-bold text-gold">ANITIO</h3>
           )}
-          <p className="mt-3 text-sm text-white/80">
+          <p className="mt-3 text-sm text-white font-semibold">
             Information Technology & Skill Development Institute. Registered by
             Ministry of Corporate Affairs & MSME. ISO 9001:2015 certified.
           </p>
@@ -48,11 +48,11 @@ export default function Footer() {
 
         {/* Quick links */}
         <div>
-          <h4 className="mb-3 text-lg font-semibold text-gold">Quick Links</h4>
+          <h4 className="mb-3 text-xl font-bold text-black">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             {quickLinks.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-white/80 hover:text-gold-light">
+                <Link to={l.to} className="text-white font-semibold">
                   {l.label}
                 </Link>
               </li>
@@ -62,11 +62,11 @@ export default function Footer() {
 
         {/* Students */}
         <div>
-          <h4 className="mb-3 text-lg font-semibold text-gold">For Students</h4>
+          <h4 className="mb-3 text-xl font-bold text-black">For Students</h4>
           <ul className="space-y-2 text-sm">
             {studentLinks.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-white/80 hover:text-gold-light">
+                <Link to={l.to} className="text-white font-semibold">
                   {l.label}
                 </Link>
               </li>
@@ -76,19 +76,27 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="mb-3 text-lg font-semibold text-gold">Contact</h4>
-          <ul className="space-y-3 text-sm text-white/80">
-            <li className="flex items-start gap-2">
-              <FiMapPin className="mt-0.5 shrink-0 text-gold" />
-              <span>Your address here</span>
+          <h4 className="mb-3 text-xl font-bold text-black">Contact</h4>
+          <ul className="space-y-3 font-semibold text-sm text-white">
+            <li className="flex items-center gap-4">
+              <FiPhone className="shrink-0 mt-4 text-xl text-white" />
+              <span className="mt-2">+91 92894 38428</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FiPhone className="shrink-0 text-gold" />
-              <span>+91 00000 00000</span>
+            <li className="flex items-center gap-4">
+              <FiPhone className="shrink-0 mt-2 text-xl text-white" />
+              <span>+91 99719 69158</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FiMail className="shrink-0 text-gold" />
-              <span className="break-all">email@example.com</span>
+            <li className="flex items-center gap-4">
+              <FiMail className="shrink-0 mt-2 text-lg text-white" />
+              <span className="break-all">anitioinstitute@gmail.com</span>
+            </li>
+
+            <li className="flex items-start gap-4">
+              <FiMapPin className="mt-5 text-lg shrink-0 text-black" />
+              <span>
+                H-20, Sewak Park, Dwarka Mor Metro Station, Pillar No. 772,
+                Uttam Nagar, New Delhi – 110059
+              </span>
             </li>
           </ul>
         </div>

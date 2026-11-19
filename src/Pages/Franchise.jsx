@@ -30,8 +30,8 @@ export default function Franchise() {
 
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-2">
         <div>
-          <h2 className="text-2xl font-bold">
-            Why partner with <span className="text-gold">{institute.name}</span>
+          <h2 className="text-2xl font-bold text-black">
+            Why partner with <span className="text-black">{institute.name}</span>
           </h2>
           <p className="mt-3 text-gray-700">
             We want to bring quality skill training to more students. If you are
@@ -40,14 +40,14 @@ export default function Franchise() {
           <ul className="mt-6 space-y-3">
             {benefits.map((item) => (
               <li key={item} className="flex items-start gap-2">
-                <FiCheckCircle className="mt-1 shrink-0 text-gold" />
+                <FiCheckCircle className="mt-1 shrink-0 text-green-400" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6">
+        <div className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6">
           <h2 className="text-xl font-semibold">Franchise enquiry</h2>
 
           {sent ? (
@@ -79,7 +79,7 @@ export default function Franchise() {
               <FormField label="Message" name="message" rows={4} />
               <button
                 type="submit"
-                className="w-full rounded bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
+                className="w-full rounded bg-yellow-400 px-6 py-3 font-semibold text-black hover:bg-yellow-300"
               >
                 Submit Enquiry
               </button>

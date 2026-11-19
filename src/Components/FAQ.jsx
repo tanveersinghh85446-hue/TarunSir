@@ -44,18 +44,18 @@ const faqs = [
 export default function FAQ() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-14">
-      <h2 className="text-2xl font-bold sm:text-3xl">
-        Frequently Asked <span className="text-gold">Questions</span>
+      <h2 className="text-2xl font-bold sm:text-3xl text-black">
+        Frequently Asked <span className="text-yellow-300">Questions</span>
       </h2>
 
       <div className="mt-6 space-y-3">
         {faqs.map((item) => (
           <details
             key={item.q}
-            className="rounded-lg border border-gray-200 bg-white p-4 open:border-gold"
+            className="rounded-lg border border-gray-200 bg-white p-4 open:border-yellow-300"
           >
-            <summary className="cursor-pointer font-semibold">{item.q}</summary>
-            <p className="mt-3 text-gray-700">{item.a}</p>
+            <summary className="cursor-pointer text-black font-semibold">{item.q}</summary>
+            <p className="mt-3 text-black">{item.a}</p>
           </details>
         ))}
       </div>

@@ -31,7 +31,7 @@ export default function Contact() {
         {/* Contact info */}
         <div className="space-y-4">
           <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
-            <FiMapPin className="mt-1 shrink-0 text-gold" size={20} />
+            <FiMapPin className="mt-4 shrink-0 text-red-600" size={20} />
             <div>
               <h3 className="font-semibold">Address</h3>
               <p className="text-gray-700">{contact.address}</p>
@@ -39,12 +39,12 @@ export default function Contact() {
           </div>
 
           <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
-            <FiPhone className="mt-1 shrink-0 text-gold" size={20} />
+            <FiPhone className="mt-4 shrink-0 text-black" size={20} />
             <div>
               <h3 className="font-semibold">Phone</h3>
               <a
                 href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                className="text-gray-700 hover:text-gold"
+                className="text-gray-700 hover:text-black"
               >
                 {contact.phone}
               </a>
@@ -52,12 +52,12 @@ export default function Contact() {
           </div>
 
           <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-5">
-            <FiMail className="mt-1 shrink-0 text-gold" size={20} />
+            <FiMail className="mt-4 shrink-0 text-green-500" size={20} />
             <div>
               <h3 className="font-semibold">Email</h3>
               <a
                 href={`mailto:${contact.email}`}
-                className="break-all text-gray-700 hover:text-gold"
+                className="break-all text-gray-700 hover:text-green-400"
               >
                 {contact.email}
               </a>
@@ -66,7 +66,7 @@ export default function Contact() {
         </div>
 
         {/* Message form */}
-        <div className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6 lg:col-span-2">
+        <div className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6 lg:col-span-2">
           <h2 className="text-xl font-semibold">Send us a message</h2>
 
           {sent ? (
@@ -98,7 +98,7 @@ export default function Contact() {
               <FormField label="Message" name="message" rows={5} required />
               <button
                 type="submit"
-                className="rounded bg-gold px-8 py-3 font-semibold text-navy hover:bg-gold-light"
+                className="rounded bg-yellow-300 px-8 py-3 font-semibold text-black hover:bg-yellow-400"
               >
                 Send Message
               </button>

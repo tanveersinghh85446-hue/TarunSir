@@ -48,8 +48,8 @@ const menu = [
 const linkStyle = (active) =>
   `px-2.5 py-2 text-sm font-medium border-b-2 ${
     active
-      ? "text-black border-black"
-      : "text-black border-transparent hover:text-yellow-300"
+      ? "text-black  border-black"
+      : "text-black  border-transparent hover:text-yellow-300"
   }`;
 
 // Mobile drawer link styles
@@ -137,14 +137,14 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
+      <nav className="mx-auto font-semi flex max-w-6xl items-center justify-between px-4 py-2">
         {/* Logo */}
         <Link to="/" onClick={closeMenu} className="flex items-center">
           <Logo className="h-12 w-auto sm:h-14 xl:h-20" />
         </Link>
 
         {/* Desktop menu */}
-        <ul ref={desktopMenuRef} className="hidden items-center gap-1 lg:flex">
+        <ul ref={desktopMenuRef} className="hidden items-center gap-1 lg:flex ">
           {menu.map((item) => (
             <li key={item.label} className="relative">
               {item.children ? (
