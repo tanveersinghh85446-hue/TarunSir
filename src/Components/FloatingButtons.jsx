@@ -5,7 +5,7 @@ import { institute } from "../data/siteData";
 
 // Country code + number, without + or spaces. Example: "919876543210"
 // The WhatsApp button stays hidden until you add the number.
-const whatsappNumber = "";
+const whatsappNumber = "919289438428";
 const whatsappMessage = `Hello ${institute.name}, I want to know about admission.`;
 
 const buttonStyle =
