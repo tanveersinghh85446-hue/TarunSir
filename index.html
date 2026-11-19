@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Link preview (WhatsApp, Facebook, etc.) -->
-    <!-- Replace YOUR-DOMAIN.com with your real domain -->
+    <!-- %SITE_URL% is filled from VITE_SITE_URL at build time (see .env.example) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ANITIO" />
     <meta property="og:title" content="ANITIO | IT & Skill Development Institute" />
@@ -25,9 +25,10 @@
       property="og:description"
       content="Career oriented short and long term courses. Registered by Ministry of Corporate Affairs & MSME. ISO 9001:2015 certified."
     />
-    <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
-    <meta property="og:image" content="https://YOUR-DOMAIN.com/og-image.png" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
   </head>
   <body>
     <div id="root"></div>

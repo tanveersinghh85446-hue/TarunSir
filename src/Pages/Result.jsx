@@ -16,6 +16,23 @@ export default function Result() {
     setSearched(true);
   }
 
+  if (results.length === 0) {
+    return (
+      <>
+        <PageHeader
+          title="Check Result"
+          subtitle="Examination results will be published here."
+        />
+        <section className="mx-auto max-w-xl px-4 py-14 text-center">
+          <p className="rounded-lg border border-gray-200 p-6 text-gray-700">
+            Results are not available online yet. Please contact the institute
+            to know your result.
+          </p>
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
       <PageHeader

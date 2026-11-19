@@ -47,7 +47,6 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/apply" element={<Apply />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/mode" element={<Mode />} />
           <Route path="/online" element={<Online />} />
           <Route path="/offline" element={<Offline />} />
@@ -59,6 +58,7 @@ export default function App() {
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

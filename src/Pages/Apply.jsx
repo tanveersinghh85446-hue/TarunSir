@@ -1,19 +1,13 @@
-import { useState } from "react";
 import PageHeader from "../Components/PageHeader";
 import FormField from "../Components/FormField";
+import useFormSubmit from "../utils/useFormSubmit";
 import { courseGroups, rules } from "../data/siteData";
 
 const allCourses = courseGroups.flatMap((group) => group.courses);
 const modeOptions = ["Online", "Offline", "Hybrid"];
 
 export default function Apply() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    // TODO: send the form data to your backend or email service here
-    setSent(true);
-  }
+  const { status, notice, handleSubmit, reset } = useFormSubmit("Admission application");
 
   return (
     <>
@@ -27,7 +21,7 @@ export default function Apply() {
         <div className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6">
           <h2 className="text-xl font-semibold">Application form</h2>
 
-          {sent ? (
+          {status === "sent" ? (
             <div className="mt-4 text-center">
               <p className="text-lg font-semibold">Thank you!</p>
               <p className="mt-2 text-gray-700">
@@ -36,7 +30,7 @@ export default function Apply() {
               </p>
               <button
                 type="button"
-                onClick={() => setSent(false)}
+                onClick={() => reset()}
                 className="mt-4 rounded bg-navy px-5 py-2 text-sm font-semibold text-white hover:text-gold"
               >
                 Submit another application
@@ -69,12 +63,23 @@ export default function Apply() {
               <FormField label="Message" name="message" rows={3} />
 
               <label className="flex items-start gap-2 text-sm">
-                <input type="checkbox" required className="mt-1" />
+                <input
+                  type="checkbox"
+                  name="rulesAccepted"
+                  required
+                  className="mt-1"
+                />
                 <span>I have read the rules & regulations given below.</span>
               </label>
 
+              {notice && (
+                <p className="text-sm font-medium text-gray-800" role="alert">
+                  {notice}
+                </p>
+              )}
               <button
                 type="submit"
+                disabled={status === "sending"}
                 className="w-full rounded bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
               >
                 Submit Application

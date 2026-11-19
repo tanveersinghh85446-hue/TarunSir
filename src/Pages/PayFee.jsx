@@ -1,15 +1,16 @@
 import PageHeader from "../Components/PageHeader";
+import { CONTACT_PHONE } from "../data/contact";
 
 // Put your online payment link here. Keep it empty if you do not have one.
 const payLink = "";
 
-// Replace these placeholders with the real payment details.
-const paymentDetails = [
-  { label: "UPI ID", value: "yourupi@bank" },
-  { label: "Account Holder", value: "Account holder name" },
-  { label: "Account Number", value: "0000000000" },
-  { label: "IFSC Code", value: "ABCD0000000" },
-];
+// Add the real payment details here, for example:
+//   { label: "UPI ID", value: "name@bank" },
+//   { label: "Account Holder", value: "..." },
+//   { label: "Account Number", value: "..." },
+//   { label: "IFSC Code", value: "..." },
+// While this list is empty, the page asks students to contact the institute.
+const paymentDetails = [];
 
 const dueDates = [
   {
@@ -40,14 +41,27 @@ export default function PayFee() {
         {/* Payment details */}
         <div className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6">
           <h2 className="text-xl font-semibold">Payment details</h2>
-          <dl className="mt-4 grid gap-3 sm:grid-cols-2">
-            {paymentDetails.map((item) => (
-              <div key={item.label}>
-                <dt className="text-sm text-gray-500">{item.label}</dt>
-                <dd className="break-all font-semibold">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
+          {paymentDetails.length > 0 ? (
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              {paymentDetails.map((item) => (
+                <div key={item.label}>
+                  <dt className="text-sm text-gray-500">{item.label}</dt>
+                  <dd className="break-all font-semibold">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <p className="mt-4 text-gray-700">
+              Please contact the institute on{" "}
+              <a
+                href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}
+                className="font-semibold text-navy underline"
+              >
+                {CONTACT_PHONE}
+              </a>{" "}
+              for the payment details.
+            </p>
+          )}
           {payLink && (
             <a
               href={payLink}

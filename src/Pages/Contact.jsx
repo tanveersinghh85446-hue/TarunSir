@@ -1,25 +1,19 @@
-import { useState } from "react";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import PageHeader from "../Components/PageHeader";
 import FormField from "../Components/FormField";
+import useFormSubmit from "../utils/useFormSubmit";
 import FAQ from "../Components/FAQ";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "../data/contact";
 
-// Replace these placeholders with the real details.
 const contact = {
   address:
     "H-20, Sewak Park, Dwarka Mor Metro Station, Pillar No. 772, Uttam Nagar, New Delhi – 110059",
-  phone: "+91 92894 38428",
-  email: "anitioinstitute@gmail.com",
+  phone: CONTACT_PHONE,
+  email: CONTACT_EMAIL,
 };
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    // TODO: send the form data to your backend or email service here
-    setSent(true);
-  }
+  const { status, notice, handleSubmit, reset } = useFormSubmit("Contact message");
 
   return (
     <>
@@ -72,7 +66,7 @@ export default function Contact() {
             Send us a message
           </h2>
 
-          {sent ? (
+          {status === "sent" ? (
             <div className="mt-4 text-center">
               <p className="text-lg font-semibold text-green-500">
                 Thank you !
@@ -82,7 +76,7 @@ export default function Contact() {
               </p>
               <button
                 type="button"
-                onClick={() => setSent(false)}
+                onClick={() => reset()}
                 className="mt-4 rounded bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:text-black"
               >
                 Send another message
@@ -101,14 +95,19 @@ export default function Contact() {
               </div>
               <FormField label="Email" name="email" type="email" />
               <FormField
-                className="text-black"
                 label="Message"
                 name="message"
                 rows={5}
                 required
               />
+              {notice && (
+                <p className="text-sm font-medium text-gray-800" role="alert">
+                  {notice}
+                </p>
+              )}
               <button
                 type="submit"
+                disabled={status === "sending"}
                 className="rounded bg-yellow-300 px-8 py-3 font-semibold text-black hover:bg-yellow-400"
               >
                 Send Message

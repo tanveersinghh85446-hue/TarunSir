@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import PageHeader from "../Components/PageHeader";
 import FormField from "../Components/FormField";
+import useFormSubmit from "../utils/useFormSubmit";
 import { institute } from "../data/siteData";
 
 const benefits = [
@@ -13,13 +13,7 @@ const benefits = [
 ];
 
 export default function Franchise() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    // TODO: send the form data to your backend or email service here
-    setSent(true);
-  }
+  const { status, notice, handleSubmit, reset } = useFormSubmit("Franchise enquiry");
 
   return (
     <>
@@ -51,7 +45,7 @@ export default function Franchise() {
         <div className="rounded-lg border border-gray-200 border-t-4 border-t-yellow-300 bg-white p-6">
           <h2 className="text-xl text-black font-bold">Franchise enquiry</h2>
 
-          {sent ? (
+          {status === "sent" ? (
             <div className="mt-4 text-center">
               <p className="text-lg font-semibold text-green-500">
                 Thank you !
@@ -62,7 +56,7 @@ export default function Franchise() {
               </p>
               <button
                 type="button"
-                onClick={() => setSent(false)}
+                onClick={() => reset()}
                 className="mt-4 rounded bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:text-black"
               >
                 Send another enquiry
@@ -80,8 +74,14 @@ export default function Franchise() {
               <FormField label="Email" name="email" type="email" />
               <FormField label="City" name="city" required />
               <FormField label="Message" name="message" rows={4} />
+              {notice && (
+                <p className="text-sm font-medium text-gray-800" role="alert">
+                  {notice}
+                </p>
+              )}
               <button
                 type="submit"
+                disabled={status === "sending"}
                 className="w-full rounded bg-yellow-400 px-6 py-3 font-semibold text-black hover:bg-yellow-300"
               >
                 Submit Enquiry
