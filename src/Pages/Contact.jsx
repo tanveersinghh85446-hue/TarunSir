@@ -1,19 +1,21 @@
+import useFormSubmit from "../hooks/useFormSubmit";
+import Honeypot from "../Components/Honeypot";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import PageHeader from "../Components/PageHeader";
 import FormField from "../Components/FormField";
-import useFormSubmit from "../utils/useFormSubmit";
 import FAQ from "../Components/FAQ";
-import { CONTACT_EMAIL, CONTACT_PHONE } from "../data/contact";
 
+// Replace these placeholders with the real details.
 const contact = {
   address:
     "H-20, Sewak Park, Dwarka Mor Metro Station, Pillar No. 772, Uttam Nagar, New Delhi – 110059",
-  phone: CONTACT_PHONE,
-  email: CONTACT_EMAIL,
+  phone: "+91 92894 38428",
+  email: "anitioinstitute@gmail.com",
 };
 
 export default function Contact() {
-  const { status, notice, handleSubmit, reset } = useFormSubmit("Contact message");
+  const { sent, setSent, loading, error, handleSubmit } =
+    useFormSubmit("contact");
 
   return (
     <>
@@ -66,7 +68,7 @@ export default function Contact() {
             Send us a message
           </h2>
 
-          {status === "sent" ? (
+          {sent ? (
             <div className="mt-4 text-center">
               <p className="text-lg font-semibold text-green-500">
                 Thank you !
@@ -76,7 +78,7 @@ export default function Contact() {
               </p>
               <button
                 type="button"
-                onClick={() => reset()}
+                onClick={() => setSent(false)}
                 className="mt-4 rounded bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:text-black"
               >
                 Send another message
@@ -84,6 +86,7 @@ export default function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+              <Honeypot />
               <div className="grid gap-4 sm:grid-cols-2 text-black">
                 <FormField label="Full Name" name="name" required />
                 <FormField
@@ -95,22 +98,23 @@ export default function Contact() {
               </div>
               <FormField label="Email" name="email" type="email" />
               <FormField
+                className="text-black"
                 label="Message"
                 name="message"
                 rows={5}
                 required
               />
-              {notice && (
-                <p className="text-sm font-medium text-gray-800" role="alert">
-                  {notice}
+              {error && (
+                <p role="alert" className="text-sm font-semibold text-red-600">
+                  {error}
                 </p>
               )}
               <button
                 type="submit"
-                disabled={status === "sending"}
-                className="rounded bg-yellow-300 px-8 py-3 font-semibold text-black hover:bg-yellow-400"
+                disabled={loading}
+                className="disabled:opacity-60 rounded bg-yellow-300 px-8 py-3 font-semibold text-black hover:bg-yellow-400"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}

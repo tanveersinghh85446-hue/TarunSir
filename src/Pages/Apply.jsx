@@ -1,13 +1,15 @@
+import useFormSubmit from "../hooks/useFormSubmit";
+import Honeypot from "../Components/Honeypot";
 import PageHeader from "../Components/PageHeader";
 import FormField from "../Components/FormField";
-import useFormSubmit from "../utils/useFormSubmit";
 import { courseGroups, rules } from "../data/siteData";
 
 const allCourses = courseGroups.flatMap((group) => group.courses);
 const modeOptions = ["Online", "Offline", "Hybrid"];
 
 export default function Apply() {
-  const { status, notice, handleSubmit, reset } = useFormSubmit("Admission application");
+  const { sent, setSent, loading, error, handleSubmit } =
+    useFormSubmit("apply");
 
   return (
     <>
@@ -21,7 +23,7 @@ export default function Apply() {
         <div className="rounded-lg border border-gray-200 border-t-4 border-t-gold bg-white p-6">
           <h2 className="text-xl font-semibold">Application form</h2>
 
-          {status === "sent" ? (
+          {sent ? (
             <div className="mt-4 text-center">
               <p className="text-lg font-semibold">Thank you!</p>
               <p className="mt-2 text-gray-700">
@@ -30,7 +32,7 @@ export default function Apply() {
               </p>
               <button
                 type="button"
-                onClick={() => reset()}
+                onClick={() => setSent(false)}
                 className="mt-4 rounded bg-navy px-5 py-2 text-sm font-semibold text-white hover:text-gold"
               >
                 Submit another application
@@ -38,6 +40,7 @@ export default function Apply() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+              <Honeypot />
               <FormField label="Full Name" name="name" required />
               <div className="grid gap-4 sm:grid-cols-2">
                 <FormField
@@ -63,26 +66,21 @@ export default function Apply() {
               <FormField label="Message" name="message" rows={3} />
 
               <label className="flex items-start gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  name="rulesAccepted"
-                  required
-                  className="mt-1"
-                />
+                <input type="checkbox" required className="mt-1" />
                 <span>I have read the rules & regulations given below.</span>
               </label>
 
-              {notice && (
-                <p className="text-sm font-medium text-gray-800" role="alert">
-                  {notice}
+              {error && (
+                <p role="alert" className="text-sm font-semibold text-red-600">
+                  {error}
                 </p>
               )}
               <button
                 type="submit"
-                disabled={status === "sending"}
-                className="w-full rounded bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
+                disabled={loading}
+                className="disabled:opacity-60 w-full rounded bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
               >
-                Submit Application
+                {loading ? "Sending..." : "Submit Application"}
               </button>
             </form>
           )}
