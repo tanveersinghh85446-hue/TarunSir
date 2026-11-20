@@ -48,7 +48,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 text-center sm:grid-cols-3">
           <div>
             <div className="flex justify-center items-center gap-3">
-              <RiCertificate2Line className="text-black text-xl" />
+              <RiCertificate2Line className=" text-xl text-yellow-300" />
             </div>
             <p className="text-sm font-bold text-black">Certified by</p>
             <p className="font-semibold mt-1">{institute.certification}</p>
@@ -56,7 +56,7 @@ export default function Home() {
 
           <div>
             <div className="flex justify-center items-center gap-3">
-              <FaRegAddressBook className="text-black text-xl" />
+              <FaRegAddressBook className="text-yellow-300 text-xl" />
             </div>
             <p className="text-sm font-bold text-black">Admission</p>
             <p className="font-semibold">Open throughout the year</p>
@@ -64,7 +64,7 @@ export default function Home() {
 
           <div>
             <div className="flex justify-center items-center gap-3">
-              <PiTrademarkRegistered className="text-black text-xl" />
+              <PiTrademarkRegistered className="text-yellow-300 text-xl" />
             </div>
             <p className="text-sm font-bold text-black">Registered by</p>
             <p className="font-semibold">{institute.registeredBy}</p>
